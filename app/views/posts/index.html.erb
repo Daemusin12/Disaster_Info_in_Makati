@@ -1,0 +1,18 @@
+<h1>Makati Disaster Information List</h1>
+
+
+<table>
+  <thead>
+  <td>title</td>
+  <td>content</td>
+  <td>address</td>
+  </thead>
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.title %></td>
+      <td><%= post.content %></td>
+      <td><%= post.address %></td>
+      <td></td>
+    </tr>
+  <% end %>
+</table>
