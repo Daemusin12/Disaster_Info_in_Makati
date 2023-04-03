@@ -4,6 +4,6 @@ class Post < ApplicationRecord
    validates :address, presence: true
 
    has_many :comments
-   has_many :post_category_ships
-   has_many :categories, through: :post_category_ships
+   has_many :post_disaster_ships
+   has_many :disasters, through: :post_disaster_ships
 end
