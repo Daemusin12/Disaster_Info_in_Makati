@@ -1,18 +1,20 @@
 <h1>Makati Disaster Information List</h1>
 
-
-<table>
-  <thead>
-  <td>title</td>
-  <td>content</td>
-  <td>address</td>
-  </thead>
-  <% @posts.each do |post| %>
-    <tr>
-      <td><%= post.title %></td>
-      <td><%= post.content %></td>
-      <td><%= post.address %></td>
-      <td></td>
-    </tr>
-  <% end %>
-</table>
+<% @posts.each do |post| %>
+<div class="card">
+  <span>Short URL</span>
+  <div class="card-header d-flex justify-content-between">
+    <p><%= post.address %></p><p>Posted by <%= post.user&.email %> </p>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= post.title %></h5>
+    <p class="card-text"><%= post.content %></p>
+    <div class="d-flex justify-content-end ">
+          <%= link_to 'Show', post_path(post), class:"btn btn-info mx-1"%>
+          <%= link_to 'Edit', edit_post_path(post), class:"btn btn-warning mx-1" %>
+          <%= button_to 'Delete', post_path(post), class:"btn btn-danger mx-1", method: :delete %>
+    </div>
+    <div>comments count</div>
+  </div>
+</div>
+<% end %>
