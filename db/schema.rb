@@ -19,12 +19,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_03_093345) do
     t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
-  create_table "disaster_types", charset: "utf8mb4", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "disasters", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -38,15 +32,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_03_093345) do
     t.datetime "updated_at", null: false
     t.index ["disaster_id"], name: "index_post_disaster_ships_on_disaster_id"
     t.index ["post_id"], name: "index_post_disaster_ships_on_post_id"
-  end
-
-  create_table "post_disaster_type_ships", charset: "utf8mb4", force: :cascade do |t|
-    t.bigint "post_id"
-    t.bigint "disaster_type_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["disaster_type_id"], name: "index_post_disaster_type_ships_on_disaster_type_id"
-    t.index ["post_id"], name: "index_post_disaster_type_ships_on_post_id"
   end
 
   create_table "posts", charset: "utf8mb4", force: :cascade do |t|
