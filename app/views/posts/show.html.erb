@@ -1,6 +1,15 @@
-<h1>Disaster Information id: <%= @post.id %></h1>
-<ul>
-  <li><%= @post.title %></li>
-  <li><%= @post.content %></li>
-  <li><%= @post.address %></li>
-</ul>
+<div class="card m-5">
+  <div class="d-flex justify-content-between">
+    <span>Short URL</span>
+  </div>
+  <div class="card-header d-flex justify-content-between">
+    <h4><%= @post.title %></h4>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p class="card-text"><%= @post.content %></p>
+    <hr/>
+    <i class="float-end"><%= @post.address %></i>
+    <div><%= link_to 'Comments', post_comments_path(@post) %></div>
+  </div>
+</div>
