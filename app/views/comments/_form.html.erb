@@ -1,0 +1,22 @@
+<%= form_with model: comment, url: path, data: { turbo: false } do |form| %>
+  <% if comment.errors.any? %>
+    <ul>
+      <% comment.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div class="d-flex flex-column align-items-center justify-content-center">
+    <div class="card m-2 col-6">
+      <div>
+        <%= form.label :comment %>
+      </div>
+      <div class="card-text">
+        <%= form.text_area :content, class: 'form-control' %>
+      </div>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <%= form.submit :submit, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+<% end %>
