@@ -11,7 +11,7 @@
     <p class="card-text"><%= @post.content %></p>
     <hr/>
     <i class="float-end"><%= @post.address %></i>
-    <div><%= link_to 'Comments', post_comments_path(@post) %></div>
+    <div><%= link_to "#{if @post.comments_count > 1 then "#{@post.comments_count} Comments" else 'Comment' end}", post_comments_path(@post) %></div>
   </div>
 </div>
 <div class="text-center">
