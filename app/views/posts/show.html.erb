@@ -3,7 +3,7 @@
     <span>Short URL</span>
   </div>
   <div class="card-header d-flex justify-content-between">
-    <h4><%= @post.title %></h4>
+    <h4><%= @post.title %></h4><p>Posted by <%= @post.user&.email %> </p>
   </div>
   <div class="card-body">
     <h5 class="card-title"></h5>
