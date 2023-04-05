@@ -1,6 +1,6 @@
 <h1 class="text-bg-info text-center">Makati Disaster Forum</h1>
 <div class="text-center">
-  <%= link_to 'Add New Information', new_post_path, class:"btn btn-success" if user_signed_in? %>
+  <%= link_to 'Add New Post', new_post_path, class:'btn btn-success' if user_signed_in? %>
 </div>
 <div class="">
 <% @posts.each do |post| %>
@@ -10,9 +10,9 @@
     <p><%= post.address %></p><p>Posted by <%= post.user&.email %> </p>
   </div>
   <div class="d-flex justify-content-end m-2">
-    <%= link_to 'Show', post_path(post), class:"btn btn-info mx-1"%>
-    <%= link_to 'Edit', edit_post_path(post), class:"btn btn-warning mx-1" if user_signed_in? && post.user == current_user %>
-    <%= button_to 'Delete', post_path(post), method: :delete, class:"btn btn-danger mx-1" if user_signed_in? && post.user == current_user %>
+    <%= link_to 'Show', post_path(post), class:'btn btn-info mx-1'%>
+    <%= link_to 'Edit', edit_post_path(post), class:'btn btn-warning mx-1' if user_signed_in? && post.user == current_user %>
+    <%= button_to 'Delete', post_path(post), method: :delete, class:'btn btn-danger mx-1' if user_signed_in? && post.user == current_user %>
   </div>
   <div class="card-body">
     <h5 class="card-title"><%= post.title %></h5>

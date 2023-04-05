@@ -6,17 +6,28 @@
       <% end %>
     </ul>
   <% end %>
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="card m-5">
+    <span>Short URL</span>
+    <div class="card-header d-flex justify-content-between">
+      <p>
+        <%= form.label :address %>
+        <%= form.text_field :address, class: 'form-control' %>
+      </p>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">
+        <%= form.label :title %>
+        <%= form.text_field :title, class: 'form-control' %>
+      </h5>
+      <div>
+        <%= form.label :content %>
+      </div>
+      <div class="card-text">
+        <%= form.text_area :content, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <%= form.submit :submit, class: 'btn btn-danger' %>
+    </div>
   </div>
-  <div>
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
-  <div>
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
-  <%= form.submit %>
 <% end %>
