@@ -1,4 +1,6 @@
 class DisastersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :admin_only
   before_action :set_disaster, only: [:edit, :update, :destroy]
 
   def index
@@ -35,6 +37,12 @@ class DisastersController < ApplicationController
 
   private
 
+  def admin_only
+    unless 'admin' == current_user.genre
+      flash[:notice] = 'You are not a administrator'
+      redirect_to posts_path
+    end
+  end
   def set_disaster
     @disaster = Disaster.find(params[:id])
   end
