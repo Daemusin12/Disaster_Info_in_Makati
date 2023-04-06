@@ -1,5 +1,9 @@
 <%= form_with model: disaster, url: path, data: { turbo: false } do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-  <%= form.submit %>
+  <div class="d-flex flex-column align-items-center justify-content-center">
+    <div class="card m-2 col-6">
+      <%= form.label :type_of_disaster %>
+      <%= form.text_field :name %>
+    </div>
+      <%= form.submit :submit, class: 'btn btn-danger' %>
+    <div>
 <% end %>

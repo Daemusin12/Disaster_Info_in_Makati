@@ -1,11 +1,16 @@
-<h1>Disasters</h1>
-
-<ul>
-  <% @disasters.each do |disaster| %>
-    <li>
-      <%= disaster.name %>
-      <%= link_to :edit, edit_disaster_path(disaster) %>
-      <%= button_to :delete, disaster_path(disaster), method: :delete %>
-    </li>
-  <% end %>
-</ul>
+<h1 class="text-center">Disasters</h1>
+<div class="container-fluid col-6">
+  <table class="table table-striped">
+    <% @disasters.each do |disaster| %>
+      <tr>
+        <td class="d-flex gap-2 justify-content-start">
+          <%= disaster.name %>
+        </td>
+        <td class="d-flex justify-content-end">
+          <%= link_to :edit, edit_disaster_path(disaster), class: 'btn btn-warning mx-1' %>
+          <%= button_to :delete, disaster_path(disaster), method: :delete, class: 'btn btn-danger mx-1' %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
