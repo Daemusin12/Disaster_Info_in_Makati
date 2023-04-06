@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :validate_post_owner, only: [:edit, :update, :destroy]
   def index
-    @posts = Post.includes(:disasters, :user).all
+    @posts = Post.includes(:disasters, :user, :comments).all
   end
 
   def new
@@ -14,6 +14,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
+      Post.reset_counters(@post.id, :comments)
       redirect_to posts_path
     else
       render :new, status: :unprocessable_entity
