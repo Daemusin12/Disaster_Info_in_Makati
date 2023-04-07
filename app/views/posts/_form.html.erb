@@ -16,6 +16,10 @@
     </div>
     <div class="card-body">
       <div>
+        <%= form.label :disaster_types %>
+        <%= form.collection_check_boxes :disaster_ids, Disaster.all, :id, :name %>
+      </div>
+      <div>
         <%= form.label :content %>
       </div>
       <div class="card-text">
