@@ -1,4 +1,7 @@
 <h1 class="text-center">Disasters</h1>
+<div class="text-center m-2">
+  <%= link_to 'Add New Disaster type', new_disaster_path, class: 'btn btn-success' %>
+</div>
 <div class="container-fluid col-6">
   <table class="table table-striped">
     <% @disasters.each do |disaster| %>
