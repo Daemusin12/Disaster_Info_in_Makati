@@ -20,6 +20,12 @@
         <%= form.collection_check_boxes :disaster_ids, Disaster.all, :id, :name %>
       </div>
       <div>
+        <%= form.label :upload_image %>
+      </div>
+      <div>
+        <%= form.file_field :image %>
+      </div>
+      <div>
         <%= form.label :content %>
       </div>
       <div class="card-text">

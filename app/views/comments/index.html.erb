@@ -8,6 +8,7 @@
   </div>
   <div class="card-body">
     <h6><%= @post.disasters.pluck(:name).join('#') %></h6>
+    <div class="container"><%= image_tag ("#{@post.image.url if @post.image.present?}"), class:'img-fluid col-4' %></div>
     <p class="card-text"><%= @post.content %></p>
     <hr/>
     <i class="float-end"><%= @post.address %></i>
