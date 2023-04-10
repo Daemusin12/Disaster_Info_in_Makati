@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_08_084919) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_09_161941) do
   create_table "comments", charset: "utf8mb4", force: :cascade do |t|
     t.string "content"
     t.bigint "post_id", null: false
@@ -45,6 +45,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_084919) do
     t.bigint "user_id"
     t.integer "comments_count"
     t.string "image"
+    t.string "ip_address"
+    t.string "country"
+    t.string "country_code"
+    t.string "isp"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
