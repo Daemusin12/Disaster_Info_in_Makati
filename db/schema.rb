@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_09_161941) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_10_144019) do
   create_table "comments", charset: "utf8mb4", force: :cascade do |t|
     t.string "content"
     t.bigint "post_id", null: false
@@ -49,6 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_09_161941) do
     t.string "country"
     t.string "country_code"
     t.string "isp"
+    t.string "short_url"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

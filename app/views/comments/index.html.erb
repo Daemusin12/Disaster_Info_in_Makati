@@ -1,6 +1,6 @@
 <div class="card m-5">
   <div class="d-flex justify-content-between">
-    <span>Short URL</span>
+    <span>Short URL <%= link_to "#{@post.short_url}", post_path(@post)%></span>
   </div>
   <div class="card-header d-flex justify-content-between">
     <h4><%= @post.title %></h4>
