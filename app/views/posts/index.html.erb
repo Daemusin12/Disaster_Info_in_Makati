@@ -24,7 +24,16 @@
         <div class="container"><%= image_tag ("#{post.image.url if post.image.present?}"), class:'img-fluid col-4' %></div>
         <p class="card-text"><%= post.content %></p>
         <hr/>
-        <i class="float-end"><%= post.address %></i>
+          <%= post.address %>
+        <hr/>
+        <i class="float-end">
+          <div class="d-flex gap-3">
+            <p>IP: <%= post.ip_address %></p>
+            <p>Country: <%= post.country %></p>
+            <p>Country_Code: <%= post.country_code %></p>
+            <p>ISP: <%= post.isp %></p>
+          </div>
+        </i>
         <div><%= link_to "#{if post.comments_count > 1 then "#{post.comments_count} Comments" else 'Comment' end}", post_comments_path(post) %></div>
       </div>
     </div>
@@ -49,7 +58,16 @@
     <div class="container"><%= image_tag ("#{post.image.url if post.image.present?}"), class:'img-fluid col-4' %></div>
     <p class="card-text"><%= post.content %></p>
     <hr/>
-    <i class="float-end"><%= post.address %></i>
+    <%= post.address %>
+    <hr/>
+    <i class="float-end">
+      <div class="d-flex gap-3">
+        <p>IP: <%= post.ip_address %></p>
+        <p>Country: <%= post.country %></p>
+        <p>Country_Code: <%= post.country_code %></p>
+        <p>ISP: <%= post.isp %></p>
+      </div>
+    </i>
     <div><%= link_to "#{if post.comments_count > 1 then "#{post.comments_count} Comments" else 'Comment' end}", post_comments_path(post) %></div>
   </div>
 </div>
