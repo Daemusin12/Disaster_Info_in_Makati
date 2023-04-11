@@ -17,12 +17,12 @@ class PostsController < ApplicationController
     @post.short_url = short_url
     if Rails.env.development?
       @post.ip_address = Net::HTTP.get(URI.parse('http://checkip.amazonaws.com/')).squish
-      @post.country_code = Geocoder.search(@post.ip_address).first.country
-      @post.country = Geocoder.search(@post.country_code).first.country
-      @post.isp = Geocoder.search(@post.ip_address).first.data["org"]
     else
       @post.ip_address = request.remote_ip
     end
+    @post.country_code = Geocoder.search(@post.ip_address).first.country
+    @post.country = Geocoder.search(@post.country_code).first.country
+    @post.isp = Geocoder.search(@post.ip_address).first.data["org"]
     if @post.save
       Post.reset_counters(@post.id, :comments)
       redirect_to posts_path
