@@ -3,8 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :validate_post_owner, only: [:edit, :update, :destroy]
   def index
-    @posts_top_3 = Post.includes(:disasters, :user, :comments).order(:comments_count).reverse_order.first(3)
-    @posts = Post.includes(:disasters, :user, :comments).order(:comments_count).reverse_order.offset(3)
+    @posts = Post.includes(:disasters, :user, :comments).order(comments_count: :desc)
   end
 
   def new
