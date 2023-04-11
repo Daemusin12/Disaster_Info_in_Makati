@@ -32,6 +32,7 @@ class DisastersController < ApplicationController
 
   def destroy
     @disaster.destroy
+    flash[:notice] = 'You cant delete the disaster type, that has posts'
     redirect_to disasters_path
   end
 
