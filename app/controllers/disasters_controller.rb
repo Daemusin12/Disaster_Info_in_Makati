@@ -39,7 +39,7 @@ class DisastersController < ApplicationController
   private
 
   def admin_only
-    unless 'admin' == current_user.genre
+    unless current_user.admin?
       flash[:notice] = 'You are not a administrator'
       redirect_to posts_path
     end
