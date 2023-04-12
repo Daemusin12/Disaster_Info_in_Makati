@@ -23,7 +23,6 @@ class PostsController < ApplicationController
     @post.country = Geocoder.search(@post.country_code).first.country
     @post.isp = Geocoder.search(@post.ip_address).first.data["org"]
     if @post.save
-      Post.reset_counters(@post.id, :comments)
       redirect_to posts_path
     else
       render :new, status: :unprocessable_entity
