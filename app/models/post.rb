@@ -8,4 +8,13 @@ class Post < ApplicationRecord
    has_many :disasters, through: :post_disaster_ships
    belongs_to :user
    mount_uploader :image, ImageUploader
+
+   def generate_short_url
+      url = rand.to_s[2..5]
+      until Post.find_by(short_url: url) == nil
+         url = rand.to_s[2..5]
+      end
+      return url
+   end
+
 end

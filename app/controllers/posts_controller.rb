@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-    @post.short_url = short_url
+    @post.short_url = @post.generate_short_url
     if Rails.env.development?
       @post.ip_address = Net::HTTP.get(URI.parse('http://checkip.amazonaws.com/')).squish
     else
@@ -62,14 +62,6 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :content, :address, :image, disaster_ids: [])
-  end
-
-  def short_url
-    url = rand.to_s[2..5]
-    until Post.find_by(short_url: url) == nil
-      url = rand.to_s[2..5]
-    end
-    return url
   end
 
 end
